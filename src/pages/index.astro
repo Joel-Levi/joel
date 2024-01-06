@@ -1,0 +1,42 @@
+---
+import Card from "../components/Card.astro";
+import Layout from "../layouts/Layout.astro";
+
+import { getStaticPaths } from "./sketches/[sketch].astro"
+
+---
+<Layout title="JL Creative Coding">
+    <main> 
+        <h1>Sketches of 2024</h1>
+        <ul role="list">    
+            { getStaticPaths().map(({params: {sketch}}) => <Card title={sketch} href={"/joel/sketches/" + sketch}></Card>) }
+        </ul>
+    </main>
+</Layout>
+<script>
+    import "../scripts/menu.js";
+</script>
+
+<style>
+    h1 {
+        text-align: center;
+        color: whitesmoke;
+    }
+    ul {
+        padding: 0;
+        min-width: 400px;
+    }
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 3rem solid black;
+        background-color: #2b2b2b;
+        border-top-width: 0px;
+        box-sizing: border-box;
+        width: 100vw;
+        max-height: calc(100vh - 3rem);
+        height: calc(100vh - 3rem);
+        overflow-y: scroll;
+    }
+</style>

@@ -1,2 +1,1 @@
-# joel
-Portfolio website of me
+This is website to host my creative coding projects.

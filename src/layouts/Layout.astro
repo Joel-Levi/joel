@@ -1,0 +1,114 @@
+---
+import Header from '../components/Header.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/joel/favicon.png" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<Header></Header>
+		
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 200, 30, 120;
+		--accent-light: 224, 250, 100;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			90deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 50%,
+			white 90%
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		background-size: 224px;
+	}
+	body {
+		margin: 0px;
+	}
+
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+	/* nav styles */
+	.nav-links {
+		top: 5rem;
+		
+		display: none;
+		margin: 0;
+	}
+
+	.nav-links a {
+		display: block;
+		text-align: center;
+		padding: 0px 0;
+		text-decoration: none;
+		font-size: 1.2rem;
+		font-weight: bold;
+		text-transform: uppercase;
+		background-color: white;
+		color: rgb(var(--accent));
+	}
+
+	.nav-links a:hover,
+	.nav-links a:focus {
+		background-color: gray;
+	}
+
+	.expanded {
+		display: unset;
+	}
+
+	@media screen and (min-width: 680px) {
+		.nav-links {
+			margin-left: 5em;
+			display: block;
+			position: static;
+			width: auto;
+			background: none;
+		}
+
+		.nav-links a {
+			display: inline-block;
+			box-sizing: border-box;
+			padding: .9rem 15px .9rem 5px;
+			margin-right: .3rem;
+			line-height: 1.2rem;
+			border-style: solid;
+			border-color: rgb(var(--accent-gradient));
+			border-right-color: rgba(0, 0, 0, 0);
+			border-top-color: rgba(0, 0, 0, 0);
+			border-width: 0px 0 0 .3rem;
+			background-color: transparent;
+		}
+		.hamburger {
+    		display: none;
+  		}
+	}
+</style>
