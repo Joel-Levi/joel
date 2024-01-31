@@ -1,1 +1,1 @@
-This is website to host my creative coding projects.
+This is a website to host my creative coding projects.
