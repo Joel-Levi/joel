@@ -7,6 +7,7 @@ function setup() {
     H = canvasDiv.offsetHeight;
     var sketchCanvas = createCanvas(W,H);
     sketchCanvas.parent("canvas");
+    sketchSetup();
 }
   
 function windowResized() {

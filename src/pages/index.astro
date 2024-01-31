@@ -3,13 +3,17 @@ import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 
 import { getStaticPaths } from "./sketches/[sketch].astro"
-
+let sketchNumber = 0;
+const getSketchNumber = () => {
+    sketchNumber++;
+    return sketchNumber;
+}
 ---
 <Layout title="JL Creative Coding">
     <main> 
         <h1>Sketches of 2024</h1>
         <ul role="list">    
-            { getStaticPaths().map(({params: {sketch}}) => <Card title={sketch} href={"/joel/sketches/" + sketch}></Card>) }
+            { getStaticPaths().map(({params: {sketch, description}}) => <Card title={getSketchNumber() + '. ' + sketch} body={description} href={"/joel/sketches/" + sketch}></Card>) }
         </ul>
     </main>
 </Layout>
