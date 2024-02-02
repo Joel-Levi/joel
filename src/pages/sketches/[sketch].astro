@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 export function getStaticPaths() {
     return [
       {params: {sketch: 'slow-start', description: 'A quick sketch to get things started, this was directly after creating the website.'}},
+      {params: {sketch: 'sin-cos', description: 'Speciaal voor bauke'}},
       ];
   }
   
@@ -11,9 +12,9 @@ export function getStaticPaths() {
 ---
 <Layout title="Joel-Levi">
   <script is:inline src="/joel/p5.min.js"></script>
+  <script is:inline src="/joel/p5.sound.js"></script>
   <main> 
     <div id="canvas">
-        <script is:inline src=`/joel/sketches/base.js`></script>
         <script is:inline src=`/joel/sketches/${sketch}.js`></script>
       </div>
       
